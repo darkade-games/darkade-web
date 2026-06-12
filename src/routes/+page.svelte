@@ -1,2 +1,5 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<h1>Welcome to Darkade</h1>
+<p>Your resource for blind-accessible videogames</p>
+
+<h1>Games</h1>
+<p>Work in progress</p>
