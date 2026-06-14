@@ -4,6 +4,10 @@
     let { data }: PageProps = $props();
 </script>
 
+<svelte:head>
+    <title>Add New Game | Darkade</title>
+</svelte:head>
+
 <h1>Add new game</h1>
 
 <form method="post" action="?/submit">

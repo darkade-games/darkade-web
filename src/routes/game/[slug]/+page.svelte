@@ -4,6 +4,10 @@
     let { data }: PageProps = $props();
 </script>
 
+<svelte:head>
+    <title>{data.game.title} | Darkade</title>
+</svelte:head>
+
 <h1>{data.game.title}</h1>
 
 {#if data.mods.length != 0}

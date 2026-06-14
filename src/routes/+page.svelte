@@ -4,6 +4,10 @@
     let { data }: PageProps = $props();
 </script>
 
+<svelte:head>
+    <title>Home | Darkade</title>
+</svelte:head>
+
 <h1>Welcome to Darkade</h1>
 <p>Your resource for blind-accessible videogames</p>
 
