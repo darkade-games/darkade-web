@@ -41,4 +41,5 @@
     <button type="submit">Log in</button>
 </form>
 
+<a href="/login/forgot-password">Forgot password?</a>
 <p>Don't have an account yet? <a href="/register">Create one</a></p>
