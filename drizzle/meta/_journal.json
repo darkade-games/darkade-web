@@ -8,6 +8,13 @@
       "when": 1781272749545,
       "tag": "0000_famous_human_fly",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1781486552768,
+      "tag": "0001_clammy_molten_man",
+      "breakpoints": true
     }
   ]
 }
