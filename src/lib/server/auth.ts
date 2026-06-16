@@ -38,7 +38,7 @@ export const auth = betterAuth({
       subject: "Confirm account creation on Darkade",
       text: `Click this link to confirm the creation of your account. If you didn't request this, feel free to ignore this email. ${url}`,
       html: `
-<h1>Welcome to Darkade<h1>
+<h1>Welcome to Darkade</h1>
 <p>Hi ${user.name} and thank you for creating an account on Darkade! Click the link below to confirm your account. If you didn't request this, feel free to ignore this email.</p>
 <a href="${url}">Confirm your account</a>
         `
