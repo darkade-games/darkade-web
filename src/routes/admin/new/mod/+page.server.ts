@@ -1,5 +1,6 @@
 import { db } from "$lib/server/db";
 import { games as gamesTable, mods, modStatus } from "$lib/server/db/schema";
+import { requireAdmin } from "$lib/server/require-admin";
 import type { PageServerLoad, Actions } from "./$types";
 
 export const load: PageServerLoad = async (event) => {
@@ -12,8 +13,10 @@ export const load: PageServerLoad = async (event) => {
 }
 
 export const actions: Actions = {
-    submit: async ({ request }) => {
-        const data = await request.formData();
+    submit: async (event) => {
+        requireAdmin(event);
+
+        const data = await event.request.formData();
 
         let success = false;
 
