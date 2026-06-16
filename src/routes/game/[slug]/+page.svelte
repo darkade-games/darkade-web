@@ -10,6 +10,10 @@
 
 <h1>{data.game.title}</h1>
 
+{#if data.user?.isAdmin}
+<a href="/admin/manage/game/{data.game.id}">Manage</a>
+{/if}
+
 {#if data.mods.length != 0}
     With
     {#each data.mods as mod, i}
