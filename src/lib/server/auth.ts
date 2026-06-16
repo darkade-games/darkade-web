@@ -10,6 +10,16 @@ export const auth = betterAuth({
   baseURL: env.ORIGIN,
   secret: env.BETTER_AUTH_SECRET,
   database: drizzleAdapter(db, { provider: 'pg' }),
+  user: {
+    additionalFields: {
+      isAdmin: {
+        type: "boolean",
+        required: false,
+        defaultValue: false,
+        input: false
+      }
+    }
+  }
   emailAndPassword: { enabled: true, requireEmailVerification: true, sendResetPassword: async ({ user, url, token }, request) => {
     void sendEmail({
       to: user.email,
