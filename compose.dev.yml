@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-darkade}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-darkade}
+      POSTGRES_DB: ${POSTGRES_DB:-darkade}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-darkade}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    init: true
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "5173:5173"
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-darkade}:${POSTGRES_PASSWORD:-darkade}@db:5432/${POSTGRES_DB:-darkade}
+      ORIGIN: http://localhost:5173
+      BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:-change-me-to-a-random-string}
+      EMAILS_TO_CONSOLE: "true"
+      RESEND_API_KEY: ${RESEND_API_KEY}
+    volumes:
+      - .:/app:Z # Not ideal, rewrite Dockerfile and all
+      - /app/node_modules
+
+volumes:
+  pgdata:
