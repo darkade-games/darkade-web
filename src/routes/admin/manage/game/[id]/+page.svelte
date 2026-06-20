@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { prettifyAccessibilityRating } from "$lib/prettify-enum";
     import type { PageProps } from "./$types";
 
     let { data }: PageProps = $props();
@@ -26,7 +27,7 @@
         {#each data.accessibilityRatings as accessibilityRating}
         <label>
             <input type="radio" name="accessibilityRating" value={accessibilityRating} checked={data.game.accessibilityRating == accessibilityRating}>
-            {accessibilityRating}
+            {prettifyAccessibilityRating(accessibilityRating)}
         </label>
         {/each}
     </fieldset>

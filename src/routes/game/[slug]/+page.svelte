@@ -1,5 +1,6 @@
 <script lang="ts">
-    import type { PageProps } from "./$types";
+    import { prettifyAccessibilityRating } from "$lib/prettify-enum";
+import type { PageProps } from "./$types";
 
     let { data }: PageProps = $props();
 </script>
@@ -21,6 +22,6 @@
     {/each}
 {/if}
 
-<p>{data.game.accessibilityRating}</p>
+<p>{prettifyAccessibilityRating(data.game.accessibilityRating)}</p>
 
 <p>{data.game.description}</p>
