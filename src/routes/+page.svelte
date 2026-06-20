@@ -13,7 +13,11 @@
 
 <h1>Games</h1>
 {#each data.games as game}
-<h2>{game.title}</h2>
-<p>{game.description}</p>
-<a href={"/game/" + game.slug}>View game</a>
+<article class="card">
+    <header>
+        <h2>{game.title}</h2>
+        <p>{game.description}</p>
+    </header>
+    <a href={"/game/" + game.slug}>View game</a>
+</article>
 {/each}
