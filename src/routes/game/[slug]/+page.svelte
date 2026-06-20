@@ -21,6 +21,10 @@
     {/each}
 {/if}
 
+{#each data.platforms as platform, i}
+{platform.name}{i < data.platforms.length - 1 ? ', ' : ''}
+{/each}
+
 <p>{data.game.accessibilityRating}</p>
 
 <p>{data.game.description}</p>

@@ -20,6 +20,17 @@
     <label for="description">Description</label>
     <textarea id="description" name="description"></textarea>
 
+            <fieldset>
+        <legend>Platforms</legend>
+
+        {#each data.platforms as platform}
+        <label>
+            <input type="checkbox" name="platform" value={platform.id}>
+            {platform.name}
+        </label>
+        {/each}
+    </fieldset>
+
     <fieldset>
         <legend>Accessibility Rating</legend>
 

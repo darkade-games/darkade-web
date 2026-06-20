@@ -20,6 +20,17 @@
     <label for="description">Description</label>
     <textarea id="description" name="description" value={data.game.description}></textarea>
 
+        <fieldset>
+        <legend>Platforms</legend>
+
+        {#each data.platforms as platform}
+        <label>
+            <input type="checkbox" name="platform" value={platform.id} checked={data.gamePlatforms.includes(platform.id)}>
+            {platform.name}
+        </label>
+        {/each}
+    </fieldset>
+
     <fieldset>
         <legend>Accessibility Rating</legend>
 
@@ -30,7 +41,7 @@
         </label>
         {/each}
     </fieldset>
-
+    
     <button type="submit">Update</button>
 </form>
 
