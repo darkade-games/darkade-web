@@ -5,7 +5,7 @@ export const load: LayoutServerLoad = async (event) => {
     const user = event.locals.user;
 
     if (!user) {
-        return redirect(303, "/login");
+        return redirect(303, `/login?callback=${event.url.pathname}`);
     }
 
     if (!user.isAdmin) {

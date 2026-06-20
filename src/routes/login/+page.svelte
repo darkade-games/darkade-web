@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { page } from "$app/state";
     import { authClient } from "$lib/auth-client";
 
     let email = "";
@@ -9,10 +10,12 @@
     async function login(event: SubmitEvent) {
         event.preventDefault();
 
+        let callbackURL = page.url.searchParams.get("callback")
+
         const result = await authClient.signIn.email({
             email,
             password,
-            callbackURL: "/"
+            callbackURL: callbackURL ? callbackURL : "/"
         })
 
         if (result.error) {
