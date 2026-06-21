@@ -1,5 +1,4 @@
-import type { RequestEvent } from "@sveltejs/kit";
-import { error } from "console";
+import { error, type RequestEvent } from "@sveltejs/kit";
 
 export const requireAdmin = (event: RequestEvent) => {
     const user = event.locals.user;
